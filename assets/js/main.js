@@ -240,26 +240,26 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Porfolio isotope and filter
    */
-  let portfolionIsotope = document.querySelector('.portfolio-isotope');
+  let portfolionIsotope = document.querySelector('.projects-isotope');
 
   if (portfolionIsotope) {
 
-    let portfolioFilter = portfolionIsotope.getAttribute('data-portfolio-filter') ? portfolionIsotope.getAttribute('data-portfolio-filter') : '*';
-    let portfolioLayout = portfolionIsotope.getAttribute('data-portfolio-layout') ? portfolionIsotope.getAttribute('data-portfolio-layout') : 'masonry';
-    let portfolioSort = portfolionIsotope.getAttribute('data-portfolio-sort') ? portfolionIsotope.getAttribute('data-portfolio-sort') : 'original-order';
+    let portfolioFilter = portfolionIsotope.getAttribute('data-projects-filter') ? portfolionIsotope.getAttribute('data-projects-filter') : '*';
+    let portfolioLayout = portfolionIsotope.getAttribute('data-projects-layout') ? portfolionIsotope.getAttribute('data-projects-layout') : 'masonry';
+    let portfolioSort = portfolionIsotope.getAttribute('data-projects-sort') ? portfolionIsotope.getAttribute('data-projects-sort') : 'original-order';
 
     window.addEventListener('load', () => {
-      let portfolioIsotope = new Isotope(document.querySelector('.portfolio-container'), {
-        itemSelector: '.portfolio-item',
+      let portfolioIsotope = new Isotope(document.querySelector('.projects-container'), {
+        itemSelector: '.projects-item',
         layoutMode: portfolioLayout,
         filter: portfolioFilter,
         sortBy: portfolioSort
       });
 
-      let menuFilters = document.querySelectorAll('.portfolio-isotope .portfolio-flters li');
+      let menuFilters = document.querySelectorAll('.projects-isotope .projects-flters li');
       menuFilters.forEach(function(el) {
         el.addEventListener('click', function() {
-          document.querySelector('.portfolio-isotope .portfolio-flters .filter-active').classList.remove('filter-active');
+          document.querySelector('.projects-isotope .projects-flters .filter-active').classList.remove('filter-active');
           this.classList.add('filter-active');
           portfolioIsotope.arrange({
             filter: this.getAttribute('data-filter')
